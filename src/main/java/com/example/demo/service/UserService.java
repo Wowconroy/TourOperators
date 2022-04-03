@@ -47,8 +47,8 @@ public class UserService {
         if (lastName != null &&
                 lastName.length() > 0 &&
                 !Objects.equals(user.getLastName(), lastName)){
-            Optional<User> studentOptional = userRepository.findUserByUsername(lastName);
-            if (studentOptional.isPresent()) throw new IllegalStateException("Username already exist");
+            Optional<User> userOptional = userRepository.findUserByUsername(lastName);
+            if (userOptional.isPresent()) throw new IllegalStateException("Username already exist");
             user.setLastName(lastName);
         }
     }
