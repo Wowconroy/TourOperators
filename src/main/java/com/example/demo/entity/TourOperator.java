@@ -1,11 +1,16 @@
 package com.example.demo.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table
+@Data
+@AllArgsConstructor
 public class TourOperator {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,30 +26,6 @@ public class TourOperator {
 
     public TourOperator(String companyName) {
         this.companyName = companyName;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getCompanyName() {
-        return companyName;
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public Set<Tour> getTours() {
-        return tours;
-    }
-
-    public void setTours(Set<Tour> tours) {
-        this.tours = tours;
     }
 
     @Override
