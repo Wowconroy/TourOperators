@@ -1,6 +1,8 @@
 package com.example.demo.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table
@@ -10,6 +12,9 @@ public class TourOperator {
     private Long id;
 
     private String companyName;
+
+    @ManyToMany(mappedBy = "tourOperators")
+    private Set<Tour> tours = new HashSet<>();
 
     public TourOperator() {
     }

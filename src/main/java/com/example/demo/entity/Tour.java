@@ -1,6 +1,8 @@
 package com.example.demo.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table
@@ -14,6 +16,11 @@ public class Tour {
 
     @Enumerated(EnumType.STRING)
     private TourType tourType;
+
+    @ManyToMany
+    @JoinTable(name = "tour_operator_tour", joinColumns = @JoinColumn(name = "tour_id"),
+            inverseJoinColumns = @JoinColumn(name = "tour_operator_id"))
+    private Set<TourOperator> tourOperators = new HashSet<>();
 
     public Tour() {
     }
