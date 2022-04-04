@@ -21,6 +21,10 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public User getById(Long id){
+        return userRepository.findById(id).orElse(null);
+    }
+
     public void addNewUser(User user){
         Optional<User> userOptional = userRepository.findUserByUsername(user.getUsername());
         if (userOptional.isPresent()) throw new IllegalStateException("Username already exist");
