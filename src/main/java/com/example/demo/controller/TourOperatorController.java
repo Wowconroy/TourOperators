@@ -2,9 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.TourOperator;
 import com.example.demo.service.TourOperatorService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,4 +21,19 @@ public class TourOperatorController {
         return tourOperatorService.getOperators();
     }
 
+    @PostMapping
+    public void addNewTourOperator(@RequestBody TourOperator tourOperator){
+        tourOperatorService.addNewTourOperator(tourOperator);
+    }
+
+    @DeleteMapping("{tourOperatorId}")
+    public void deleteTourOperator(@PathVariable Long tourOperatorId){
+        tourOperatorService.deleteTourOperator(tourOperatorId);
+    }
+
+    @PutMapping("{tourOperatorId}")
+    public void updateTourOperator(@PathVariable Long tourOperatorId,
+                                   @RequestParam (required = false) String companyName){
+        tourOperatorService.updateTourOperator(tourOperatorId, companyName);
+    }
 }
