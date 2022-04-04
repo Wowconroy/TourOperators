@@ -54,12 +54,19 @@ public class Tour {
         this.tourType = tourType;
     }
 
+    public Set<TourOperator> getTourOperators() {
+        return tourOperators;
+    }
+
+    public void setTourOperators(Set<TourOperator> tourOperators) {
+        this.tourOperators = tourOperators;
+    }
+
     @Override
     public String toString() {
         return "Tour{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", tourType=" + tourType +
                 '}';
     }
 }
