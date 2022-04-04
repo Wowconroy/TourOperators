@@ -39,6 +39,14 @@ public class TourOperator {
         this.companyName = companyName;
     }
 
+    public Set<Tour> getTours() {
+        return tours;
+    }
+
+    public void setTours(Set<Tour> tours) {
+        this.tours = tours;
+    }
+
     @Override
     public String toString() {
         return "TourOperator{" +
