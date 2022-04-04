@@ -19,7 +19,9 @@ public class User {
     private String username;
     private String lastName;
     private LocalDate dob;
-    //Need to add relations -> ROLE (One to One)
+
+    @ManyToOne
+    private UserRole userRole;
 
     @Transient
     private Integer age;
